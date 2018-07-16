@@ -1,0 +1,20 @@
+{
+  "name": "ejectall",
+  "version": "1.2.2",
+  "dependencies": {
+    "chalk": "^2.4.1"
+  },
+  "description": "ejects all removable storage/media devices quickly yet safely",
+  "main": "app.js",
+  "scripts": {
+    "build": ""
+  },
+  "files": [],
+  "keywords": "usb, media, system, command line, eject, storage, drives, spawn",
+  "author": "teslatickles => hunterhartline@gmail.com",
+  "license": "MIT",
+  "bin": {
+    "ejectall": "./app.js"
+  },
+  "devDependencies": {}
+}
