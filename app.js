@@ -1,32 +1,49 @@
 #!/usr/bin/env node
 
-'use strict'
+"use strict";
 
-const chalk = require('chalk');
+const { exec } = require("child_process");
+const os = require("os");
+const chalk = require("chalk");
 const log = console.log;
 const error = console.error;
 
-let operatingSys = '' || 'ls /dev/';
+let operatingSys = "" || "ls /dev/";
 
-if (process.platform === 'darwin') {
-  log(chalk.rgb(125, 125, 175)('\n must be on a mac\n'));
-  operatingSys = "osascript -e 'tell application \"Finder\" to eject \
+let userInfo = os.userInfo();
+log(
+  chalk.hex("#60a3bc")(
+    `\nHello, ${chalk.hex("#e58e26")(
+      userInfo.username
+    )}, looks like you use ${chalk.hex("#fab1a0")(
+      userInfo.homedir
+    )} as your $HOME`
+  )
+);
+
+if (process.platform === "darwin") {
+  log(chalk.hex("#1abc9c")("\nmust be on a mac\n"));
+  operatingSys =
+    "osascript -e 'tell application \"Finder\" to eject \
                  (every disk whose ejectable is true)'";
-} else if (process.platform === 'linux') {
-    log(chalk.rgb(200, 100, 150)('\nmust be on a linux machine\n'));
-    operatingSys = "sudo umount /dev/sd* --verbose";
-} else if (process.platform === 'win32') {
-    throw error(chalk.rgb(250, 50, 88)('\nOh no! must you use windows? : \
-    would you help me make this work for windows... please 貴方わすごいです！\n'));
+} else if (process.platform === "linux") {
+  log(chalk.hex("#1abc9c")("\nmust be on a linux machine\n"));
+  operatingSys = "sudo umount /dev/sd* --verbose";
+} else if (process.platform === "win32") {
+  throw error(
+    chalk.hex("#1abc9c")(
+      "\nOh no! must you use windows? : \
+    would you help me make this work for windows... please 貴方わすごいです！\n"
+    )
+  );
 }
 
-const { exec } = require('child_process');
 const child = exec(operatingSys);
 
-child.stderr.on('data', (data) => {
+child.stderr.on("data", data => {
   error(chalk.redBright(data));
 });
 
-child.on('exit', function (code, signal) {
-  log(chalk.bold.hex('4271f4')('\n All devices ejected! \n'));
+child.on("exit", function(code, signal) {
+  log(chalk.bold.hex("#EE5A24")("ALL devices ejected! \n"));
 });
