@@ -12,13 +12,7 @@ let operatingSys = "" || "ls /dev/";
 
 let userInfo = os.userInfo();
 log(
-  chalk.hex("#60a3bc")(
-    `\nHello, ${chalk.hex("#e58e26")(
-      userInfo.username
-    )}, looks like you use ${chalk.hex("#fab1a0")(
-      userInfo.homedir
-    )} as your $HOME`
-  )
+  chalk.hex("#60a3bc")(`\nHello, ${chalk.hex("#e58e26")(userInfo.username)}`)
 );
 
 if (process.platform === "darwin") {
