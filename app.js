@@ -9,7 +9,7 @@ const log = console.log;
 const error = console.error;
 
 let operatingSys = "" || "ls /dev/";
-// let mountedDrives = "diskutil list | grep 'dev'";
+let mountedDrives = "diskutil list | grep 'dev'";
 
 let userInfo = os.userInfo();
 log(
@@ -35,8 +35,9 @@ if (process.platform === "darwin") {
   );
 }
 
+// child2 is experimental/prototyping bit
 const child = exec(operatingSys);
-// const child2 = exec(mountedDrives);
+const child2 = exec(mountedDrives);
 
 child.stderr.on("data", data => {
   error(chalk.redBright(data));
@@ -46,10 +47,10 @@ child.on("exit", function(code, signal) {
   log(chalk.bold.hex("#EE5A24")("💾  ALL devices ejected!\n"));
 });
 
-// child2.stderr.on("data", data => {
-//   error(chalk.redBright(data));
-// });
+child2.stderr.on("data", data => {
+  error(chalk.redBright(data));
+});
 
-// child2.stdout.on("data", data => {
-//   log(chalk.hex("#95afc0")(data));
-// });
+child2.stdout.on("data", data => {
+  log(chalk.hex("#95afc0")(data));
+});
