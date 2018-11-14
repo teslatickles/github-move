@@ -26,4 +26,4 @@ computer.__
 
 __If you work with a lot of removable media devices and often are on the go, this npm package will give you a handy command line tool for safely ejecting all removable media very quickly__. 
 
-![example photo](https://drive.google.com/file/d/1oUMTWJfKdy6SnK26K-8ULG84Sv479S9o/view?usp=sharing)
+![example photo](https://drive.google.com/open?id=1rgV5-IE3N2wD_tHIS2GPq-zdhTuFT5y0?raw=true)
