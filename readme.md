@@ -11,20 +11,19 @@
 ejectall
 ```
 
-#### With version 1.1.0 we have:
+#### With version 1.3.0 we have:
 
-- ejects even faster than before
-- works on both linux and mac
-- does not require reference to another file for bash command execution
+- Changed the styling to be more interesting
 
-__This is a simple node module that quickly ejects all devices mounted to a target
+- Added feature that acknowledges/displays username of current USER of computer
+
+- Does not require reference to another file for bash command execution
+
+- Works on Linux machines/OS X
+
+__This is a simple npm module/package that quickly ejects all devices mounted to a target
 computer.__
 
-_Note: :notes:_
+__If you work with a lot of removable media devices and often are on the go, this npm package will give you a handy command line tool for safely ejecting all removable media very quickly__. 
 
-  Unfortunately, this will only work on mac and linux machines only!
-
-  __Listen!__
-
-  > If someone would like to make this work on windows, or, even better, teach me
-  how to make this work on windows, that would be awesome.
+![example photo](/zoom_ex.png)
