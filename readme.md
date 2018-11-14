@@ -26,8 +26,6 @@ computer.__
 
 __If you work with a lot of removable media devices and often are on the go, this npm package will give you a handy command line tool for safely ejecting all removable media very quickly__. 
 
-<<<<<<< HEAD
-![example photo](/zoom_ex.png)
-=======
-![](zoom_ex.png)
->>>>>>> 85707ee2ba12f3d0e87f59703b178881caa66040
+![zoomed example photo](/zoom_ex.png)
+
+![other example photo](/example.png)
