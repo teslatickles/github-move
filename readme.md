@@ -1,13 +1,14 @@
-### Simple command-line tool that accepts a single argument ```ejectall``` and quickly and safely ejects all connected removable-media.
+### Simple command-line tool that accepts a single argument `ejectall` and quickly and safely ejects all connected removable-media.
 
 ### To install:
 
 ```shell
     npm install ejectall -g
 ```
+
 ### Then:
 
-``` shell
+```shell
 ejectall
 ```
 
@@ -21,13 +22,11 @@ ejectall
 
 - Works on Linux machines/OS X
 
-__This is a simple npm module/package that quickly ejects all devices mounted to a target
-computer.__
+**This is a simple npm module/package that quickly ejects all devices mounted to a target
+computer.**
 
-__If you work with a lot of removable media devices and often are on the go, this npm package will give you a handy command line tool for safely ejecting all removable media very quickly__. 
+**If you work with a lot of removable media devices and often are on the go, this npm package will give you a handy command line tool for safely ejecting all removable media very quickly**.
 
-<<<<<<< HEAD
-![example photo](/zoom_ex.png)
-=======
-![](zoom_ex.png)
->>>>>>> 85707ee2ba12f3d0e87f59703b178881caa66040
+![zoomed example photo](/zoom_ex.png)
+
+![other example photo](/example.png)
