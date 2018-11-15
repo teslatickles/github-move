@@ -29,4 +29,9 @@ computer.**
 
 ![zoomed example photo](/zoom_ex.png)
 
+<<<<<<< HEAD
+=======
+![zoomed example photo](/zoom_ex.png)
+
+>>>>>>> 837798c0767c7660a37cf5a605de29c83b59bfee
 ![other example photo](/example.png)
