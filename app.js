@@ -8,8 +8,8 @@ const chalk = require("chalk");
 const log = console.log;
 const error = console.error;
 
-let operatingSys = "" || "ls /dev/";
-let mountedDrives = "diskutil list | grep 'dev'";
+let operatingSys;
+let mountedDrives;
 
 let userInfo = os.userInfo();
 log(
@@ -20,11 +20,13 @@ log(
 
 if (process.platform === "darwin") {
   log(chalk.hex("#1abc9c")("\n🔧  must be a mac\n"));
+  mountedDrives = "diskutil list | grep dev";
   operatingSys =
     "osascript -e 'tell application \"Finder\" to eject \
                  (every disk whose ejectable is true)'";
 } else if (process.platform === "linux") {
   log(chalk.hex("#1abc9c")("\nmust be a linux machine\n"));
+  mountedDrives = "df -h | grep ^/dev";
   operatingSys = "sudo umount /dev/sd* --verbose";
 } else if (process.platform === "win32") {
   throw error(
@@ -37,7 +39,6 @@ if (process.platform === "darwin") {
 
 // child2 is experimental/prototyping bit
 const child = exec(operatingSys);
-const child2 = exec(mountedDrives);
 
 child.stderr.on("data", data => {
   error(chalk.redBright(data));
@@ -47,10 +48,14 @@ child.on("exit", function(code, signal) {
   log(chalk.bold.hex("#EE5A24")("💾  ALL devices ejected!\n"));
 });
 
-child2.stderr.on("data", data => {
-  error(chalk.redBright(data));
-});
+if (process.argv[2] === "-v") {
+  const child2 = exec(mountedDrives);
 
-child2.stdout.on("data", data => {
-  log(chalk.hex("#95afc0")(data));
-});
+  child2.stderr.on("data", data => {
+    error(chalk.redBright(data));
+  });
+
+  child2.stdout.on("data", data => {
+    log(chalk.hex("#95afc0")(data));
+  });
+}
